@@ -17,7 +17,7 @@
           />
         </div>
         <div class="center">
-          <p>#<span id="questionCounter">1</span> of 25</p>
+          <p>#<span id="questionCounter">1</span> of 8</p>
           <div id="progressBarFill"></div>
           <div id="progressBarShell"></div>
         </div>
@@ -44,6 +44,15 @@
       <div id="incorrectSlider">
         <img src="assets/images/cross.svg" alt="Cross mark" />
         <h3>Incorrect!</h3>
+      </div>
+      <div id="gameOverSlider">
+        <h3>All Done!</h3>
+        <p>Your final score is:</p>
+        <p id="finalScore"></p>
+        <form>
+          <input type="text" placeholder="Enter Your Initials" />
+          <input class="btn" type="submit" value="Submit" />
+        </form>
       </div>
     </div>
     <script src="assets/quiz.js"></script>
