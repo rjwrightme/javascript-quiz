@@ -11,6 +11,7 @@ const correctSlider = document.querySelector('#correctSlider');
 const incorrectSlider = document.querySelector('#incorrectSlider');
 const gameOverSlider = document.querySelector('#gameOverSlider');
 const finalScore = document.querySelector('#finalScore');
+const submitScore = document.querySelector('#submitScore');
 
 // Variables
 let questionNum = 0;
@@ -194,7 +195,15 @@ function gameOver() {
     gameOverSlider.style.display = 'initial';
 }
 
-// Event Handler
+function readLocalStorage() {
+    let savedScores = localStorage.getItem("savedScores");
+    if (savedScores != null) {
+        return JSON.parse(localStorage.getItem("savedScores"));
+    }
+}
+
+// Event Handlers
+// Multiple Choice Clicks
 quizAnswers.addEventListener('click', function (e) {
     if (e.target.className === 'btn') {
         // Use the button ID to extract a numeric answer
@@ -202,5 +211,24 @@ quizAnswers.addEventListener('click', function (e) {
         checkAnswer(answer);
     };
 });
+
+// High Score Submission
+submitScore.addEventListener('submit', function (e) {
+    // collect name and score
+    let initials = e.target[0].value;
+    let scoreSubmission = {
+        name: initials,
+        score: quizTimer < 0 ? 0 : quizTimer
+    }
+    // check if there's any saved scores from previous completions
+    let savedScores = readLocalStorage();
+    if (savedScores != undefined) {
+        savedScores.push(scoreSubmission);
+    } else {
+        savedScores = [scoreSubmission];
+    }
+    // store them in localStorage
+    localStorage.setItem("savedScores", JSON.stringify(savedScores));
+})
 
 initQuiz();

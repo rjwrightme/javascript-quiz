@@ -4,6 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Quiz Leaderboard</title>
+    <link rel="stylesheet" href="assets/style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="topUI">
+      <div class="wrapper">
+        <div class="left">
+          <a href="index.html"
+            ><img
+              id="jsIcon"
+              src="assets/images/js-icon.svg"
+              alt="Javascript Logo"
+          /></a>
+        </div>
+        <div class="center">
+          <h1>High Scores</h1>
+        </div>
+      </div>
+    </div>
+    <div class="scores">
+      <ul id="scoreList"></ul>
+    </div>
+    <a href="index.html"><div class="btn btn-secondary">Return</div></a>
+    <script src="assets/score.js"></script>
+  </body>
 </html>

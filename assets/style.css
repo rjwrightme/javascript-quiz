@@ -222,3 +222,23 @@ h3 {
     max-width: 250px;
     margin-top: 45%;
 }
+
+/* Leaderboard Page */
+.center h1 {
+    color: #fff;
+    margin: 0;
+}
+
+.scores {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 3em;
+}
+
+.scores li {
+    text-align: center;
+}
+
+.scores li:nth-child(even) {
+    background-color: #FFEBE8;
+}
