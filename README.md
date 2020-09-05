@@ -13,7 +13,7 @@ https://rjwrightme.github.io/javascript-quiz/
 
 ## Screenshot
 
-The following image demonstrates the application functionality:
+The following images demonstrate the application functionality:
 ![JavaScript Quiz Homepage](./assets/images/screenshots/homepage.png)
 ![JavaScript Quiz](./assets/images/screenshots/quiz.png)
 ![JavaScript Quiz Correct Answer](./assets/images/screenshots/correct.png)
