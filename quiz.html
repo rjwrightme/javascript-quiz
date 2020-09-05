@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Quiz</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div class="topUI">
+      <div class="wrapper">
+        <div class="left">
+          <img
+            id="jsIcon"
+            src="assets/images/js-icon.svg"
+            alt="Javascript Logo"
+          />
+        </div>
+        <div class="center">
+          <p>#<span id="questionCounter">1</span> of 25</p>
+          <div id="progressBarFill"></div>
+          <div id="progressBarShell"></div>
+        </div>
+        <div class="right">
+          <span id="timer">75</span>
+          <svg>
+            <circle cx="20" cy="20" r="20"></circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <h1 id="quizQuestion">What is JavaScript?</h1>
+      <div id="answers">
+        <div class="btn">Answer 1</div>
+        <div class="btn">Answer 2</div>
+        <div class="btn">Answer 3</div>
+        <div class="btn">Answer 4</div>
+      </div>
+      <div id="correctSlider">
+        <img src="assets/images/tick.svg" alt="Tick mark" />
+        <h3>Correct!</h3>
+      </div>
+      <div id="incorrectSlider">
+        <img src="assets/images/cross.svg" alt="Cross mark" />
+        <h3>Incorrect!</h3>
+      </div>
+    </div>
+  </body>
+</html>
