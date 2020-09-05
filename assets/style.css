@@ -232,11 +232,12 @@ h3 {
 .scores {
     margin-top: 20px;
     font-size: 20px;
-    line-height: 3em;
+    line-height: 1.5em;
 }
 
 .scores li {
     text-align: center;
+    padding: 10px;
 }
 
 .scores li:nth-child(even) {
