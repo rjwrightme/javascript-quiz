@@ -24,18 +24,18 @@
         <div class="right">
           <span id="timer">75</span>
           <svg>
-            <circle cx="20" cy="20" r="20"></circle>
+            <circle id="timerCircle" cx="20" cy="20" r="20"></circle>
           </svg>
         </div>
       </div>
     </div>
     <div class="wrapper">
-      <h1 id="quizQuestion">What is JavaScript?</h1>
+      <h1 id="quizQuestion"></h1>
       <div id="answers">
-        <div class="btn">Answer 1</div>
-        <div class="btn">Answer 2</div>
-        <div class="btn">Answer 3</div>
-        <div class="btn">Answer 4</div>
+        <div id="answer-1" class="btn"></div>
+        <div id="answer-2" class="btn"></div>
+        <div id="answer-3" class="btn"></div>
+        <div id="answer-4" class="btn"></div>
       </div>
       <div id="correctSlider">
         <img src="assets/images/tick.svg" alt="Tick mark" />
@@ -46,5 +46,6 @@
         <h3>Incorrect!</h3>
       </div>
     </div>
+    <script src="assets/quiz.js"></script>
   </body>
 </html>
