@@ -7,6 +7,8 @@ const timerCircle = document.querySelector('#timerCircle');
 // Quiz Handles
 const quizQuestion = document.querySelector('#quizQuestion');
 const quizAnswers = document.querySelector('#answers');
+const correctSlider = document.querySelector('#correctSlider');
+const incorrectSlider = document.querySelector('#incorrectSlider');
 
 // Variables
 let questionNum = 0;
@@ -21,17 +23,18 @@ let wrongAnswerPenalty = 15;
 const qArray = [{
     qTitle: 'Test Question. 3 is the right answer',
     answerArray: ['pick me!', 'or me!', 'especially me!', 'forget me!'],
-    rightAnswer: 2
+    rightAnswer: 3
 }, {
     qTitle: 'Another Test Question. 1 is the right answer',
     answerArray: ['pick me!', 'pick me!', 'pick me!', 'pick me!'],
-    rightAnswer: 0
+    rightAnswer: 1
 }, {
     qTitle: 'Test Question #3. 4 is the right answer',
     answerArray: ['pick me!', 'pick me!', 'pick me!', 'pick me!'],
-    rightAnswer: 3
+    rightAnswer: 4
 }]
 
+// Functions
 function initQuiz() {
     // Render 1st Question
     renderQuestion();
@@ -49,17 +52,31 @@ function initQuiz() {
     }, 1000);
 }
 
-
-// Functions
-//checkAnswer()
 function checkAnswer(answer) {
-    // compare answer number with the right answer from the question object
-    // if correct, call rightAnswer()
-    // else call wrongAnswer()
+    if (answer === qArray[questionNum].rightAnswer) {
+        rightAnswer();
+    } else {
+        wrongAnswer();
+    }
+    questionNum++;
+    renderQuestion();
 }
-//rightAnswer()
-//wrongAnswer()
-//renderQuestion()
+
+function rightAnswer() {
+    correctSlider.style.display = 'initial';
+    setTimeout(function () {
+        correctSlider.style.display = 'none';
+    }, 1000);
+}
+
+function wrongAnswer() {
+    incorrectSlider.style.display = 'initial';
+    quizTimer -= wrongAnswerPenalty;
+    setTimeout(function () {
+        incorrectSlider.style.display = 'none';
+    }, 1000);
+}
+
 function renderQuestion() {
     let question = qArray[questionNum];
     quizQuestion.textContent = question.qTitle;
@@ -69,11 +86,16 @@ function renderQuestion() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].textContent = question.answerArray[i];
     }
-    questionNum++;
+    // Update the progress bar in the top UI
+    updateProgress()
 }
-//updateProgress() {
-//  update progress bar
-// }
+
+function updateProgress() {
+    questionNumHandle.textContent = questionNum + 1;
+    let progressPercent = (questionNum + 1) * 4;
+    progressBar.style.width = progressPercent + '%';
+}
+
 //gameOver()
 
 
