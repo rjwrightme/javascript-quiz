@@ -17,6 +17,7 @@ const submitScore = document.querySelector('#submitScore');
 let questionNum = 0;
 let quizTimer = 75;
 let wrongAnswerPenalty = 15;
+let quizLength = 5;
 
 // Question Array
 // Each object in the array will need:
@@ -125,13 +126,17 @@ const qArray = [{
     rightAnswer: 3
 }]
 
+let randomQArray = [];
+
 // Functions
 function initQuiz() {
+    // Generate random questions
+    randomQuestions();
     // Render 1st Question
     renderQuestion();
     // Start Timer
     gameInterval = setInterval(function () {
-        if (quizTimer < 0 || questionNum >= 7) {
+        if (quizTimer < 0 || questionNum === quizLength) {
             timerCircle.style.strokeDashoffset = 125;
             clearInterval(gameInterval);
             gameOver(); //Needs to be definied
@@ -143,14 +148,24 @@ function initQuiz() {
     }, 1000);
 }
 
+function randomQuestions() {
+    for (let i = 0; i < quizLength; i++) {
+        // randomly remove one question from the original qArray and add it to the random array
+        let question = qArray.splice(Math.floor(Math.random() * qArray.length), 1)
+        randomQArray.push(question[0]);
+    }
+}
+
 function checkAnswer(answer) {
-    if (answer === qArray[questionNum].rightAnswer) {
+    if (answer === randomQArray[questionNum].rightAnswer) {
         rightAnswer();
     } else {
         wrongAnswer();
     }
     questionNum++;
-    renderQuestion();
+    if (questionNum < quizLength) {
+        renderQuestion();
+    }
 }
 
 function rightAnswer() {
@@ -169,7 +184,7 @@ function wrongAnswer() {
 }
 
 function renderQuestion() {
-    let question = qArray[questionNum];
+    let question = randomQArray[questionNum];
     quizQuestion.textContent = question.qTitle;
     // get an array of the multiple choice buttons
     let buttons = quizAnswers.children;
@@ -183,7 +198,7 @@ function renderQuestion() {
 
 function updateProgress() {
     questionNumHandle.textContent = questionNum + 1;
-    let progressPercent = (questionNum + 1) * 12.5;
+    let progressPercent = (questionNum + 1) * (100 / quizLength);
     progressBar.style.width = progressPercent + '%';
 }
 

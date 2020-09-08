@@ -4,6 +4,7 @@ This is a quick quiz to test your understanding of beginner JavaScript concepts.
 
 1. Responsive, mobile first design
 1. Visual timer and progress bar
+1. Randomised set of questions each time you play
 1. Leaderboard that uses local storage to remember previous scores
 1. Leaderboard sorts itself to display the highest scores first
 
