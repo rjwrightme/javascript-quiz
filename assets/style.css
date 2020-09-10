@@ -164,8 +164,10 @@ h3 {
     cursor: pointer;
 }
 
-.btn:hover {
-    background-color: #ffee9d;
+@media(min-width: 1025px) {
+    .btn:hover {
+        background-color: #ffee9d;
+    }
 }
 
 #correctSlider,
